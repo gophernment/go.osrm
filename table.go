@@ -5,7 +5,7 @@ type TableRequest struct {
 	Profile               string
 	Coordinates           Geometry
 	Sources, Destinations []int
-	Annotations           Annotation
+	Annotations           Annotations
 }
 
 // TableResponse resresents a response from the table method
