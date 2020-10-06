@@ -1,19 +1,11 @@
 package osrm
 
-type TableAnnotation string
-
-const (
-	TableAnnotationDuration         TableAnnotation = "duration"
-	TableAnnotationDistance         TableAnnotation = "distance"
-	TableAnnotationDurationDistance TableAnnotation = "duration,distance"
-)
-
 // TableRequest represents a request to the table method
 type TableRequest struct {
 	Profile               string
 	Coordinates           Geometry
 	Sources, Destinations []int
-	Annotations           TableAnnotation
+	Annotations           Annotation
 }
 
 // TableResponse resresents a response from the table method

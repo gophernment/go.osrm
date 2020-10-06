@@ -87,14 +87,15 @@ type Annotations string
 
 // Supported annotations param values
 const (
-	AnnotationsTrue        Annotations = "true"
-	AnnotationsFalse       Annotations = "false"
-	AnnotationsNodes       Annotations = "nodes"
-	AnnotationsDistance    Annotations = "distance"
-	AnnotationsDuration    Annotations = "duration"
-	AnnotationsDatasources Annotations = "datasources"
-	AnnotationsWeight      Annotations = "weight"
-	AnnotationsSpeed       Annotations = "speed"
+	AnnotationsTrue            Annotations = "true"
+	AnnotationsFalse           Annotations = "false"
+	AnnotationsNodes           Annotations = "nodes"
+	AnnotationsDistance        Annotations = "distance"
+	AnnotationsDuration        Annotations = "duration"
+	AnnotationDurationDistance Annotations = "duration,distance"
+	AnnotationsDatasources     Annotations = "datasources"
+	AnnotationsWeight          Annotations = "weight"
+	AnnotationsSpeed           Annotations = "speed"
 )
 
 // String returns Annotations as a string
