@@ -1,16 +1,26 @@
 package osrm
 
+type TableAnnotation string
+
+const (
+	TableAnnotationDuration         TableAnnotation = "duration"
+	TableAnnotationDistance         TableAnnotation = "distance"
+	TableAnnotationDurationDistance TableAnnotation = "duration,distance"
+)
+
 // TableRequest represents a request to the table method
 type TableRequest struct {
 	Profile               string
 	Coordinates           Geometry
 	Sources, Destinations []int
+	Annotations           TableAnnotation
 }
 
 // TableResponse resresents a response from the table method
 type TableResponse struct {
 	ResponseStatus
 	Durations [][]float32 `json:"durations"`
+	Distances [][]float32 `json:"distances"`
 }
 
 func (r TableRequest) request() *request {
@@ -20,6 +30,9 @@ func (r TableRequest) request() *request {
 	}
 	if len(r.Destinations) > 0 {
 		opts.addInt("destinations", r.Destinations...)
+	}
+	if r.Annotations != "" {
+		opts.add("annotations", string(r.Annotations))
 	}
 
 	return &request{
